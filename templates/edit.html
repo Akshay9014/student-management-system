@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="container mt-4">
+
+<div class="card">
+<h2>Edit Student</h2>
+
+<form method="POST">
+
+<label>Roll No</label>
+<input class="form-control" value="{{ student[0] }}" readonly>
+
+<label>Name</label>
+<input class="form-control" name="name" value="{{ student[1] }}">
+
+<label>Enrollment Number</label>
+<input class="form-control" name="enrollment_number" value="{{ student[2] }}">
+
+<label>Course</label>
+<input class="form-control" name="course" value="{{ student[3] }}">
+
+<label>Subject</label>
+<input class="form-control" name="subject" value="{{ student[4] }}">
+
+<label>Submission</label>
+<select class="form-control" name="submission">
+<option {% if student[5]=='Yes' %}selected{% endif %}>Yes</option>
+<option {% if student[5]=='No' %}selected{% endif %}>No</option>
+</select>
+
+<label>Marks</label>
+<input class="form-control" name="marks" value="{{ student[6] }}">
+
+<br>
+<button class="btn btn-primary">Update</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
